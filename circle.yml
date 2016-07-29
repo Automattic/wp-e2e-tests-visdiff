@@ -1,8 +1,10 @@
+machine:
+  node:
+    version: 5.11.1
+
 checkout:
   post:
     - git clone https://github.com/Automattic/wp-e2e-tests.git
-    - cat wp-e2e-tests/package.json | sed 's/^.*appium.*$//' > package.json
-    - mv package.json wp-e2e-tests/package.json
 dependencies:
   override:
     - cd wp-e2e-tests && npm install
