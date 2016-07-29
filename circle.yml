@@ -4,10 +4,12 @@ machine:
 
 checkout:
   post:
-    - git clone https://github.com/Automattic/wp-e2e-tests.git
+    - git submodule update --init
+
 dependencies:
   override:
     - cd wp-e2e-tests && npm install
+
 test:
   override:
     - cd wp-e2e-tests && env BROWSERSIZE=mobile ./node_modules/mocha/bin/mocha --NODE_CONFIG='{"browser":"firefox", "proxy":"system", "neverSaveScreenshots":"true"}' -i -g '' specs-visdiff/critical/ lib/after.js
