@@ -14,7 +14,6 @@ dependencies:
 
 test:
   override:
-    - echo SUCCESS
-#    - cd wp-e2e-tests && env BROWSERSIZE=mobile ./node_modules/mocha/bin/mocha --NODE_CONFIG='{"browser":"firefox", "proxy":"system", "neverSaveScreenshots":"true"}' -i -g '' specs-visdiff/critical/ lib/after.js
-#    - cd wp-e2e-tests && env BROWSERSIZE=desktop ./node_modules/mocha/bin/mocha --NODE_CONFIG='{"browser":"firefox", "proxy":"system", "neverSaveScreenshots":"true"}' -i -g '' specs-visdiff/critical/ lib/after.js
-#    - cd wp-e2e-tests && env BROWSERSIZE=tablet ./node_modules/mocha/bin/mocha --NODE_CONFIG='{"browser":"firefox", "proxy":"system", "neverSaveScreenshots":"true"}' -i -g '' specs-visdiff/critical/ lib/after.js
+    - cd wp-e2e-tests && env BROWSERSIZE=mobile ./node_modules/mocha/bin/mocha --NODE_CONFIG='{"browser":"firefox", "proxy":"system", "neverSaveScreenshots":"true"}' -i -g '' specs-visdiff/critical/ lib/after.js
+    - cd wp-e2e-tests && env BROWSERSIZE=desktop ./node_modules/mocha/bin/mocha --NODE_CONFIG='{"browser":"firefox", "proxy":"system", "neverSaveScreenshots":"true"}' -i -g '' specs-visdiff/critical/ lib/after.js
+    - cd wp-e2e-tests && env BROWSERSIZE=tablet ./node_modules/mocha/bin/mocha --NODE_CONFIG='{"browser":"firefox", "proxy":"system", "neverSaveScreenshots":"true"}' -i -g '' specs-visdiff/critical/ lib/after.js
