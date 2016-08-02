@@ -4,7 +4,7 @@ machine:
 
 checkout:
   post:
-    - git submodule update --init
+    - git submodule update --remote
 
 dependencies:
   cache_directories:
