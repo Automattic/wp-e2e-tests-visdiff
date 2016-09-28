@@ -19,5 +19,9 @@ dependencies:
 
 test:
   override:
-    - echo "Running visdiff tests on branch origin/${E2E_BRANCH-master} with the following browsers - ${BROWSERS-all}"
-    - cd wp-e2e-tests && git checkout origin/${E2E_BRANCH-master} && ./run.sh -m ${BROWSERS-all}
+    - >
+      export TESTARGS="-m ${BROWSERS-all}"
+      if [ "$RUN_SPECIFIED" == "true" ]; then
+        TESTARGS=$RUN_ARGS
+      fi
+      cd wp-e2e-tests && git checkout origin/${E2E_BRANCH-master} && ./run.sh $TESTARGS
