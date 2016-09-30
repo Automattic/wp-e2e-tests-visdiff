@@ -5,6 +5,7 @@ machine:
     version: 5.11.1
   hosts:
     lorempixel.com: 127.0.0.1
+    placekitten.com: 127.0.0.1
 
 checkout:
   post:
