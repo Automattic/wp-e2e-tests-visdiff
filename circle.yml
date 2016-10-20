@@ -2,7 +2,7 @@ machine:
   environment:
     NODE_ENV: test
   node:
-    version: 5.11.1
+    version: 6.9.0
   hosts:
     lorempixel.com: 127.0.0.1
     placekitten.com: 127.0.0.1
