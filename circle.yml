@@ -28,4 +28,4 @@ test:
         TESTARGS=$RUN_ARGS
       fi
 
-      cd wp-e2e-tests && git checkout origin/${E2E_BRANCH-master} && npm run decryptconfig && NODE_CONFIG={} ./run.sh $TESTARGS
+      cd wp-e2e-tests && git checkout origin/${E2E_BRANCH-master} && npm run decryptconfig && ./run.sh $TESTARGS
