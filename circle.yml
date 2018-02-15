@@ -1,6 +1,7 @@
 machine:
   environment:
     NODE_ENV: test
+    TARGET: VISDIFF
   node:
     version: 6.10.3
   hosts:
@@ -27,4 +28,4 @@ test:
         TESTARGS=$RUN_ARGS
       fi
 
-      cd wp-e2e-tests && git checkout origin/${E2E_BRANCH-master} && ./run.sh $TESTARGS
+      cd wp-e2e-tests && git checkout origin/${E2E_BRANCH-master} && npm run decryptconfig && ./run.sh $TESTARGS
