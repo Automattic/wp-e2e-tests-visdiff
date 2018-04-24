@@ -16,7 +16,10 @@ jobs:
       - run: cd wp-e2e-tests && git checkout origin/${E2E_BRANCH-master}
       - run: cd wp-e2e-tests && npm install
       - run: export TESTARGS="-m ${BROWSERS-all}"
-      - run: if [ "$RUN_SPECIFIED" == "true" ]; then TESTARGS=$RUN_ARGS fi
+      - run: |
+          if [ "$RUN_SPECIFIED" == "true" ]; then
+            TESTARGS=$RUN_ARGS
+          fi
       - run: cd wp-e2e-tests && npm run decryptconfig && ./run.sh $TESTARGS
       - store_test_results:
           path: wp-e2e-tests/reports/
