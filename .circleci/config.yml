@@ -20,7 +20,7 @@ jobs:
           if [ "$RUN_SPECIFIED" == "true" ]; then
             TESTARGS=$RUN_ARGS
           fi
-      - run: cd wp-e2e-tests && npm run decryptconfig && ./run.sh ${TESTARGS--R -C}
+      - run: cd wp-e2e-tests && npm run decryptconfig && ./run.sh ${TESTARGS--R -v}
       - store_test_results:
           path: wp-e2e-tests/reports/
       - store_artifacts:
