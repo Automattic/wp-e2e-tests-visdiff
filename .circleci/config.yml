@@ -9,18 +9,17 @@ jobs:
           TARGET: VISDIFF
     steps:
       - checkout
-      - run: echo 127.0.0.1 lorempixel.com | sudo tee -a /etc/hosts
-      - run: echo 127.0.0.1 placekitten.com | sudo tee -a /etc/hosts
       - run: git submodule init
       - run: git submodule update --remote --force
       - run: cd wp-e2e-tests && git checkout origin/${E2E_BRANCH-master}
       - run: cd wp-e2e-tests && npm install
-      - run: export TESTARGS="-m ${BROWSERS-all}"
       - run: |
+          export TESTARGS="-v -l osx-chrome -s mobile,tablet,desktop"
           if [ "$RUN_SPECIFIED" == "true" ]; then
             TESTARGS=$RUN_ARGS
           fi
-      - run: cd wp-e2e-tests && npm run decryptconfig && ./run.sh ${TESTARGS--R -v}
+      - run: echo $TESTARGS
+      - run: cd wp-e2e-tests && npm run decryptconfig && ./run.sh $TESTARGS
       - store_test_results:
           path: wp-e2e-tests/reports/
       - store_artifacts:
