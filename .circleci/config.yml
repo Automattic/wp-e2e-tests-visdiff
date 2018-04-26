@@ -16,8 +16,10 @@ jobs:
       - run: |
           export TESTARGS="-v -l osx-chrome -s mobile,tablet,desktop"
           if [ "$RUN_SPECIFIED" == "true" ]; then
-            TESTARGS=$RUN_ARGS
+            $TESTARGS=$RUN_ARGS
           fi
+          echo $TESTARGS
+          echo $RUN_ARGS
       - run: echo $TESTARGS
       - run: cd wp-e2e-tests && npm run decryptconfig && ./run.sh $TESTARGS
       - store_test_results:
