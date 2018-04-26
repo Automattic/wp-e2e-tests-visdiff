@@ -13,15 +13,7 @@ jobs:
       - run: git submodule update --remote --force
       - run: cd wp-e2e-tests && git checkout origin/${E2E_BRANCH-master}
       - run: cd wp-e2e-tests && npm install
-      - run: |
-          export TESTARGS="-v -l osx-chrome -s mobile,tablet,desktop"
-          if [ "$RUN_SPECIFIED" == "true" ]; then
-            $TESTARGS=$RUN_ARGS
-          fi
-          echo $TESTARGS
-          echo $RUN_ARGS
-      - run: echo $TESTARGS
-      - run: cd wp-e2e-tests && npm run decryptconfig && ./run.sh $TESTARGS
+      - run: cd wp-e2e-tests && npm run decryptconfig && ./run.sh ${RUN_ARGS--v -l osx-chrome -s mobile,tablet,desktop}
       - store_test_results:
           path: wp-e2e-tests/reports/
       - store_artifacts:
