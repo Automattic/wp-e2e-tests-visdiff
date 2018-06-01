@@ -14,6 +14,7 @@ jobs:
       - run: cd wp-e2e-tests && git checkout origin/${E2E_BRANCH-master}
       - restore_cache:
           key: v1-{{ checksum "wp-e2e-tests/package-lock.json" }}
+      - run: cd wp-e2e-tests && npm i npm@latest -g
       - run: cd wp-e2e-tests && npm install
       - save_cache:
           key: v1-{{ checksum "wp-e2e-tests/package-lock.json" }}
